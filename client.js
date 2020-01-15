@@ -23,10 +23,14 @@ const connect = function() {
     conn.write("Name: DHE");
   });
 
-  // conn.on("connect", () => {
+  conn.on("connect", () => {
+    conn.write("Move: up");
+    // console.log("Move up");
+  });
+
+  // setTimeout(() => {
   //   conn.write("Move: up");
-  //   // console.log("Move up");
-  // });
+  // }, 3000);
 
   // interpret incoming data as text
   conn.setEncoding("utf8");
