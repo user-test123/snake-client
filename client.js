@@ -24,8 +24,15 @@ const connect = function() {
   });
 
   conn.on("connect", () => {
-    conn.write("Move: up");
-    // console.log("Move up");
+    conn.write("Say: HELLO HOW ARE YOU?");
+  });
+
+  conn.on("connect", () => {
+    // conn.write("Move: up");
+    console.log("Move up");
+    // conn.write("Move: left");
+    // conn.write("Move: up");
+    // conn.write("Move: up");
   });
 
   // setTimeout(() => {
@@ -39,6 +46,6 @@ const connect = function() {
 };
 
 console.log("Connecting ...");
-connect();
+// connect();
 
 module.exports = { connect };
