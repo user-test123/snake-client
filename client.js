@@ -2,7 +2,7 @@ const net = require("net");
 
 const connect = function() {
   const conn = net.createConnection({
-    host: "172.46.1.209",
+    host: "172.46.2.204",
     port: 50541
   });
 
@@ -17,6 +17,10 @@ const connect = function() {
   conn.on("connect", () => {
     conn.write("Hello from client this is David!");
     console.log("Successfully connected to game server");
+  });
+
+  conn.on("connect", () => {
+    conn.write("Name: DHE");
   });
 
   // interpret incoming data as text
