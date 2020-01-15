@@ -1,6 +1,8 @@
 const net = require("net");
 
-const setupInput = function() {
+let connection;
+
+const setupInput = function(conn) {
   const stdin = process.stdin;
   stdin.setRawMode(true);
   stdin.setEncoding("utf8");
@@ -10,7 +12,25 @@ const setupInput = function() {
     if (handleUserInput === "\u0003") {
       process.exit();
     }
+
+    if (handleUserInput === "w") {
+      console.log("up");
+    }
+
+    if (handleUserInput === "a") {
+      console.log("left");
+    }
+
+    if (handleUserInput === "s") {
+      console.log("down");
+    }
+
+    if (handleUserInput === "d") {
+      console.log("right");
+    }
   });
+
+  connection = conn;
 
   return stdin;
 };
@@ -18,13 +38,15 @@ const setupInput = function() {
 /**
  * Establishes connection with the game server
  */
-const connect = function() {
-  const conn = net.createConnection({
-    host: "172.46.2.209",
-    port: 50541
-  });
-};
 
-setupInput();
+// const connect = function() {
+//   const conn = net.createConnection({
+//     host: "172.46.2.209",
+//     port: 50541
+//   });
+//   return conn;
+// };
+
+// setupInput(conn);
 
 module.exports = { setupInput };
