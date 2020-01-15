@@ -2,7 +2,7 @@ const net = require("net");
 
 const connect = function() {
   const conn = net.createConnection({
-    host: "172.46.2.204",
+    host: "172.46.1.209",
     port: 50541
   });
 
@@ -22,6 +22,11 @@ const connect = function() {
   conn.on("connect", () => {
     conn.write("Name: DHE");
   });
+
+  // conn.on("connect", () => {
+  //   conn.write("Move: up");
+  //   // console.log("Move up");
+  // });
 
   // interpret incoming data as text
   conn.setEncoding("utf8");
