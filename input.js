@@ -1,5 +1,4 @@
 const net = require("net");
-const { setupInput } = require("./input");
 
 const setupInput = function() {
   const stdin = process.stdin;
@@ -26,6 +25,6 @@ const connect = function() {
   });
 };
 
-console.log("Connecting ...");
-connect();
 setupInput();
+
+module.exports = { setupInput };
